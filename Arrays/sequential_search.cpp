@@ -12,6 +12,7 @@ int main(){
     int *arr,n,target;
     cout<<"Enter no.of elements:";
     cin>>n;
+    arr=new int[n];
     cout<<"Fill the array:"<<endl;
     for(int i=0;i<n;i++){
         cout<<"Enter element "<<i+1<<":";
