@@ -58,7 +58,7 @@ void levelOrder(Node *root){
     while(q.size()>0){
         Node *curr=q.front();
         q.pop();
-        cout<<curr->data;
+        cout<<curr->data<<" ";
         if(curr->left!=NULL){
             q.push(curr->left);
         }
@@ -114,6 +114,17 @@ int main(){
     cout<<endl;
     cout<<"POST-ORDER TRAVERSAL:"<<endl;
     postOrder(root);
+    cout<<endl;
+    cout<<"LEVEL-ORDER TRAVERSAL:"<<endl;
+    levelOrder(root);
+    cout<<endl;
+    cout<<"HEIGHT OF TREE:";
+    cout<<height(root)<<endl;
+    cout<<"COUNT OF NODES:";
+    cout<<countOfNodes(root)<<endl;
+    cout<<"SUM OF NODES:";
+    cout<<sumOfNodes(root)<<endl;
+
     return 0;
 }
 
