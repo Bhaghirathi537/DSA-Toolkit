@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 using namespace std;
 class Node{
     public:
@@ -48,6 +49,23 @@ void postOrder(Node *root){
     postOrder(root->left);
     postOrder(root->right);
     cout<<root->data<<" ";
+}
+
+void levelOrder(Node *root){
+    queue<Node*> q;
+    q.push(root);
+    while(q.size()>0){
+        Node *curr=q.front();
+        q.pop();
+        cout<<curr->data;
+        if(curr->left!=NULL){
+            q.push(curr->left);
+        }
+        if(curr->right!=NULL){
+            q.push(curr->right);
+        }
+    }
+
 }
 int main(){
     int n,*arr;
