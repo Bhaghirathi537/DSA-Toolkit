@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <algorithm>
 using namespace std;
 class Node{
     public:
@@ -65,8 +66,35 @@ void levelOrder(Node *root){
             q.push(curr->right);
         }
     }
-
 }
+
+int height(Node *root){
+    if(root==NULL){
+        return 0;
+    }
+    int left_height=height(root->left);
+    int right_height=height(root->right);
+    return max(left_height,right_height)+1;
+}
+
+int countOfNodes(Node *root){
+    if(root==NULL){
+        return 0;
+    }
+    int left_count=countOfNodes(root->left);
+    int right_count=countOfNodes(root->right);
+    return left_count+right_count+1;
+}
+
+int sumOfNodes(Node *root){
+    if(root==NULL){
+        return 0;
+    }
+    int left_sum=sumOfNodes(root->left);
+    int right_sum=sumOfNodes(root->right);
+    return left_sum+right_sum+root->data;
+}
+
 int main(){
     int n,*arr;
     cout<<"Enter the no.of elements in seq:";
